@@ -1,0 +1,24 @@
+{
+  "name": "suoli",
+  "version": "0.0.0",
+  "description": "Sign up or login react component",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jfrancos/suoli.git"
+  },
+  "keywords": [
+    "magic",
+    "link",
+    "react"
+  ],
+  "author": "Justin Francos",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jfrancos/suoli/issues"
+  },
+  "homepage": "https://github.com/jfrancos/suoli#readme"
+}
