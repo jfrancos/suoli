@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+div {
+  display: flex;
+
+}
+
+.grid-overlay {
+  grid-row-start: 1;
+  grid-column-start: 1;
+}
+
