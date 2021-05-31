@@ -70,7 +70,7 @@ const Suoli = ({ ...className }) => {
   const transformText =
     state === 0 ? `scaleY(${unsquish})` : `scale(${squish})`;
 
-  const duration = "duration-300"; // 'duration-1000';
+  const duration = "duration-1000"; // 'duration-1000';
 
   const buttonColor =
     state === 0 && bigHovering ? "bg-gray-400" : "bg-gray-300";

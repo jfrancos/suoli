@@ -10,7 +10,7 @@ export default {
     {
       dir: "dist/esm",
       format: "esm",
-      //   exports: "named",
+        exports: "named",
     },
     // { dir: "dist/cjs", format: "cjs" , exports: "named"},
   ],
@@ -20,7 +20,7 @@ export default {
       plugins: [
         tailwindcss({
           mode: "jit",
-          purge: ["./src/**/*.{tsx}"],
+          purge: ["./src/index.tsx"],
         }),
         autoprefixer(),
       ],
