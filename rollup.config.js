@@ -21,6 +21,11 @@ export default {
         tailwindcss({
           mode: "jit",
           purge: ["./src/index.tsx"],
+        //   theme: {
+        //     transitionDuration: {
+        //        DEFAULT: '100ms'
+        //      }
+        //  }
         }),
         autoprefixer(),
       ],

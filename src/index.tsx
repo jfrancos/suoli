@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import clsx from "clsx";
 // import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
-import './index.css'
+import "./index.css";
 
 // const [dormant, enteringText, sendingEmail, waitingForConfirmation] = [
 //   Symbol('dormant'),
@@ -10,6 +10,9 @@ import './index.css'
 //   Symbol('sendingEmail'),
 //   Symbol('waitingForConfirmation'),
 // ];
+
+const duration = "duration-1000"; // 'duration-1000';
+
 
 const Suoli = ({ ...className }) => {
   const [state, setState] = useState(0);
@@ -70,8 +73,6 @@ const Suoli = ({ ...className }) => {
   const transformText =
     state === 0 ? `scaleY(${unsquish})` : `scale(${squish})`;
 
-  const duration = "duration-1000"; // 'duration-1000';
-
   const buttonColor =
     state === 0 && bigHovering ? "bg-gray-400" : "bg-gray-300";
   const littleButtonColor =
@@ -92,11 +93,12 @@ const Suoli = ({ ...className }) => {
             style={{
               transform: transformTopHalfBg,
               transformOrigin: "top",
+              transitionProperty: "transform"
             }}
             ref={bigRefs[1]}
             className={clsx(
               buttonColor,
-              "w-72 h-full transition-transform grid-overlay .shadow-2xl",
+              "w-72 h-full  ease-in-out .transition-transform grid-overlay .shadow-2xl",
               duration
             )}
           />
@@ -123,16 +125,18 @@ const Suoli = ({ ...className }) => {
 
         <div
           // Bottom half bg
-          style={{
-            transform: transformLayer3,
-            transformOrigin: "top",
-          }}
+
           ref={bigRefs[2]}
           className={clsx(
             buttonColor,
-            duration,
-            " w-72 h-14  justify-center items-center transform-gpu transition-transform grid-overlay grid .shadow-2xl"
+            " w-72 h-14  justify-center items-center ease-in-out transform-gpu .transition-transform grid-overlay grid .shadow-2xl",
+            duration
           )}
+          style={{
+            transform: transformLayer3,
+            transformOrigin: "top",
+            transitionProperty: "transform"
+          }}
         >
           {/* Bottom half */}
           {state === 3 ? (
@@ -145,19 +149,20 @@ const Suoli = ({ ...className }) => {
                 // Bottom half button bg
                 ref={littleRefs[0]}
                 className={clsx(
-                  duration,
                   littleButtonColor,
-                  "h-8 w-48 grid-overlay  transition-opacity transform-gpu rounded-md shadow-md",
-                  state === 0 ? "opacity-0" : "opacity-100"
+                  "h-8 w-48 grid-overlay ease-in-out transition-opacity transform-gpu rounded-md shadow-md",
+                  state === 0 ? "opacity-0" : "opacity-100",
+                  duration
                 )}
               />
               <div
                 // Bottom half text
                 ref={littleRefs[1]}
-                style={{ transform: transformText }}
+                style={{ transform: transformText, transitionProperty: "transform" }}
                 className={clsx(
+                  "grid-overlay text-xl ease-in-out font-semibold .transition-transform justify-center transform-gpu items-center",
                   duration,
-                  "grid-overlay text-xl font-semibold transition-transform justify-center transform-gpu items-center"
+
                 )}
               >
                 Sign up or login
@@ -167,12 +172,12 @@ const Suoli = ({ ...className }) => {
         </div>
 
         <div
-          style={{ transform: transformLayer4 }}
+          style={{ transform: transformLayer4, transitionProperty: "transform" }}
           ref={bigRefs[3]}
           className={clsx(
             buttonColor,
-            duration,
-            ".shadow-2xl w-72 h-2 rounded-b-lg transition-transform transform-gpu"
+            ".shadow-2xl ease-in-out w-72 h-2 rounded-b-lg .transition-transform transform-gpu",
+            duration
           )}
         />
       </div>
@@ -180,4 +185,4 @@ const Suoli = ({ ...className }) => {
   );
 };
 
-export  { Suoli };
+export { Suoli };
