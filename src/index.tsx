@@ -11,7 +11,7 @@ import "./index.css";
 //   Symbol('waitingForConfirmation'),
 // ];
 
-const duration = "duration-1000"; // 'duration-1000';
+const duration = "duration-300"; // 'duration-1000';
 
 
 const Suoli = ({ ...className }) => {
