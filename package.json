@@ -1,6 +1,6 @@
 {
-  "name": "suoli",
-  "version": "0.0.0",
+  "name": "@jfrancos/suoli",
+  "version": "0.0.1",
   "description": "Sign up or login react component",
   "module": "./dist/esm/index.js",
   "scripts": {
@@ -36,8 +36,10 @@
     "@types/react": "^17.0.8",
     "autoprefixer": "^10.2.6",
     "postcss": "^8.3.0",
+    "rollup": "^2.51.1",
     "rollup-plugin-postcss": "^4.0.0",
     "tailwindcss": "^2.1.2",
+    "tslib": "^2.2.0",
     "typescript": "^4.3.2"
   }
 }

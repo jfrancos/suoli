@@ -10,7 +10,7 @@ export default {
     {
       dir: "dist/esm",
       format: "esm",
-        exports: "named",
+      exports: "named",
     },
     // { dir: "dist/cjs", format: "cjs" , exports: "named"},
   ],
@@ -21,11 +21,11 @@ export default {
         tailwindcss({
           mode: "jit",
           purge: ["./src/index.tsx"],
-        //   theme: {
-        //     transitionDuration: {
-        //        DEFAULT: '100ms'
-        //      }
-        //  }
+          //   theme: {
+          //     transitionDuration: {
+          //        DEFAULT: '100ms'
+          //      }
+          //  }
         }),
         autoprefixer(),
       ],
