@@ -1,6 +1,6 @@
 {
   "name": "@jfrancos/suoli",
-  "version": "0.0.1",
+  "version": "0.0.5",
   "description": "Sign up or login react component",
   "module": "./dist/esm/index.js",
   "scripts": {

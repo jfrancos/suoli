@@ -75,25 +75,25 @@ const Suoli = ({ onEmail: handleEmail, error, emailSent, ...className }) => {
 
   useEffect(() => {
     if (emailSent) {
-      setState(3)
+      setState(3);
     }
-  }, [emailSent])
+  }, [emailSent]);
 
   useEffect(() => {
     if (error) {
-      setState(1)
+      setState(1);
     }
-  })
+  });
 
   useEffect(() => {
     if (state === 1) {
-      inputRef.current.focus()
+      inputRef.current.focus();
     }
-  })
+  });
 
   const handleLittleClick = () => {
     if (state !== 1 || !validEmail) {
-      return
+      return;
     }
     handleEmail(email);
     setState(2);
@@ -129,21 +129,18 @@ const Suoli = ({ onEmail: handleEmail, error, emailSent, ...className }) => {
   return (
     <div {...className} onClick={handleMainClick}>
       <div className="grid">
-      {error && <div className="grid-overlay bg-opacity-0 .h-full justify-center items-center text-xs text-red-700 .bg-gray-300 px-4 font-semibold w-72 z-10 pointer-events-none">
-          {error}
-        </div>}
+        {error && (
+          <div className="grid-overlay bg-opacity-0 .h-full justify-center items-center text-xs text-red-700 .bg-gray-300 px-4 font-semibold w-72 z-10 pointer-events-none">
+            {error}
+          </div>
+        )}
         <div className="flex-col cursor-default grid-overlay bg-transparent">
           <div
             ref={bigRefs[0]}
-            className={clsx(buttonColor, "w-72 h-2 rounded-t-lg .shadow-2xl"
-            )}
+            className={clsx(buttonColor, "w-72 h-2 rounded-t-lg .shadow-2xl")}
           />
 
-          <div
-            className={clsx(
-              "grid w-72 h-14 justify-center items-center",
-            )}
-          >
+          <div className={clsx("grid w-72 h-14 justify-center items-center")}>
             {/* Top half */}
             <div
               // Top half bg
@@ -178,7 +175,10 @@ const Suoli = ({ onEmail: handleEmail, error, emailSent, ...className }) => {
                 value={email}
                 onChange={handleInput}
                 ref={inputRef}
-                className={clsx("h-8 w-64 p-2 mx-4 grid-overlay transform-gpu rounded-sm", error && "mb-4")}
+                className={clsx(
+                  "h-8 w-64 p-2 mx-4 grid-overlay transform-gpu rounded-sm",
+                  error && "mb-4"
+                )}
                 placeholder="email@address.com"
               />
             )}
@@ -255,7 +255,6 @@ const Suoli = ({ onEmail: handleEmail, error, emailSent, ...className }) => {
             )}
           />
         </div>
-
       </div>
     </div>
   );
