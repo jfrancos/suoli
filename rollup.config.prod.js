@@ -17,18 +17,7 @@ export default {
   external: ["react", "clsx", "react-loader-spinner"],
   plugins: [
     postcss({
-      plugins: [
-        tailwindcss({
-          mode: "jit",
-          purge: ["./src/index.tsx"],
-          //   theme: {
-          //     transitionDuration: {
-          //        DEFAULT: '100ms'
-          //      }
-          //  }
-        }),
-        autoprefixer(),
-      ],
+      plugins: [tailwindcss(), autoprefixer()],
     }),
     ts({
       typescript,
