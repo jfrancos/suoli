@@ -1,6 +1,6 @@
 {
   "name": "@jfrancos/suoli",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Sign up or login react component",
   "module": "./dist/esm/index.js",
   "scripts": {
@@ -25,7 +25,8 @@
   "homepage": "https://github.com/jfrancos/suoli#readme",
   "dependencies": {
     "clsx": "^1.1.1",
-    "react-loader-spinner": "^4.0.0"
+    "react-loader-spinner": "^4.0.0",
+    "rooks": "^5.7.1"
   },
   "peerDependencies": {
     "react": "^17.0.0",

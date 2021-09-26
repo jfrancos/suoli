@@ -3,6 +3,7 @@ import clsx from "clsx";
 // import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
 import "./index.css";
+import { useKey, useOutsideClickRef } from 'rooks';
 
 // const [dormant, enteringText, sendingEmail, waitingForConfirmation] = [
 //   Symbol('dormant'),
@@ -18,7 +19,6 @@ const Suoli = ({ onEmail: handleEmail, error, emailSent, ...className }) => {
   const [state, setState] = useState(0);
   const [bigHovering, setBigHovering] = useState(false);
   const [LittleHovering, setLittleHovering] = useState(false);
-  // const [email, setEmail] = useState("");
   const [email, setEmail] = useState("");
   const inputRef = useRef(null);
   const bigRefs = [
@@ -33,77 +33,80 @@ const Suoli = ({ onEmail: handleEmail, error, emailSent, ...className }) => {
   ];
   const validEmail = email.match(emailRegex);
 
-  useEffect(() => {
-    const handleKeydown = ({ key }: KeyboardEvent) => {
-      if (key === "ArrowRight") {
-        setState((state) => (state + 1) % 4);
-      }
-    };
-    document.addEventListener("keydown", handleKeydown);
-    return () => document.removeEventListener("keydown", handleKeydown);
-  });
+  // useEffect(() => {
+  //   const handleKeydown = ({ key }: KeyboardEvent) => {
+  //     if (key === "ArrowRight") {
+  //       setState((state) => (state + 1) % 4);
+  //     }
+  //   };
+  //   document.addEventListener("keydown", handleKeydown);
+  //   return () => document.removeEventListener("keydown", handleKeydown);
+  // });
 
+  
   useEffect(() => {
     const handleMouse = ({ clientX, clientY }: MouseEvent) => {
       const target = document.elementFromPoint(clientX, clientY);
       setBigHovering(bigRefs.some((ref) => ref.current?.contains(target)));
       setLittleHovering(
         littleRefs.some((ref) => ref.current?.contains(target))
-      );
-    };
-    document.addEventListener("mouseover", handleMouse);
-    document.addEventListener("mouseout", handleMouse);
-    return () => {
-      document.removeEventListener("mouseover", handleMouse);
-      document.removeEventListener("mouseout", handleMouse);
-    };
-  });
-
-  const handleInput = ({ target: { value } }) => {
-    setEmail(value);
-  };
-
-  const handleMainClick = () => {
-    setState((state) => {
-      if (state === 0) {
-        return 1;
-      } else {
-        return state;
-      }
+        );
+      };
+      document.addEventListener("mouseover", handleMouse);
+      document.addEventListener("mouseout", handleMouse);
+      return () => {
+        document.removeEventListener("mouseover", handleMouse);
+        document.removeEventListener("mouseout", handleMouse);
+      };
     });
-  };
-
-  useEffect(() => {
-    if (emailSent) {
-      setState(3)
-    }
-  }, [emailSent])
-
-  useEffect(() => {
-    if (error) {
-      setState(1)
-    }
-  })
-
-  useEffect(() => {
-    if (state === 1) {
-      inputRef.current.focus()
-    }
-  })
-
-  const handleLittleClick = () => {
-    if (state !== 1 || !validEmail) {
-      return
-    }
-    handleEmail(email);
-    setState(2);
-  };
-
-  // Sending email to ...
-  //   Follow the linke we just sent to ...
-  // Please sign in
-  // Follow the link sent to email@address.com to continue
-
+    
+    const handleInput = ({ target: { value } }) => {
+      setEmail(value);
+    };
+    
+    const handleMainClick = () => {
+      setState((state) => {
+        if (state === 0) {
+          return 1;
+        } else {
+          return state;
+        }
+      });
+    };
+    
+    useEffect(() => {
+      if (emailSent) {
+        setState(3)
+      }
+    }, [emailSent])
+    
+    useEffect(() => {
+      if (error) {
+        setState(1)
+      }
+    })
+    
+    useEffect(() => {
+      if (state === 1) {
+        inputRef.current.focus()
+      }
+    })
+    
+    const handleLittleClick = () => {
+      if (state !== 1 || !validEmail) {
+        return
+      }
+      handleEmail(email);
+      setState(2);
+    };
+    
+    useKey('Enter', handleLittleClick)
+    
+    // Sending email to ...
+    //   Follow the linke we just sent to ...
+    // Please sign in
+    // Follow the link sent to email@address.com to continue
+    
   // Authenticated
   // Starting session
 

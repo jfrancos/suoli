@@ -14,7 +14,7 @@ export default {
     },
     // { dir: "dist/cjs", format: "cjs" , exports: "named"},
   ],
-  external: ["react", "clsx", "react-loader-spinner"],
+  external: ["react", "clsx", "react-loader-spinner", "rooks"],
   plugins: [
     postcss({
       plugins: [tailwindcss(), autoprefixer()],
