@@ -12,7 +12,7 @@ import { useKey, useOutsideClickRef } from 'rooks';
 //   Symbol('waitingForConfirmation'),
 // ];
 
-const duration = "duration-1000"; // 'duration-1000';
+const duration = "duration-500"; // 'duration-1000';
 const emailRegex = /^.+@\S+$/;
 
 const Suoli = ({ onEmail: handleEmail, error, emailSent, ...className }) => {
